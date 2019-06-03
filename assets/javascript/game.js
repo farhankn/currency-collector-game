@@ -61,7 +61,8 @@ $(document).ready(function() {
         gameData.userPick = gameData.userPick + gameData.money0;
         theScore.text(gameData.userPick);
         gameData.didUserWin(gameData.userPick);
-        theRandomNumber.text("Random Number: " + gameData.randomNumber);        theWins.text("Wins: " +gameData.wins);
+        theRandomNumber.text("Random Number: " + gameData.randomNumber);        
+        theWins.text("Wins: " +gameData.wins);
         theLosses.text("Losses: " +gameData.losses);
         theScore.text(gameData.userPick);
 
