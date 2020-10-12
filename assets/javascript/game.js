@@ -1,10 +1,25 @@
 // create an object called game data
+
+function convertNumberToWords(num) {
+
+    var splittedNum =num.toString().split('.')
+    var nonDecimal=splittedNum[0]
+    var decimal=splittedNum[1]
+    words = nonDecimal + " Riyal and " + decimal + " Halalas "
+    console.log(words)
+    return words
+    }
+
 var gameData = {
-    randomNumber: Math.floor(Math.random() * 120 + 19),
-    money0: Math.floor(Math.random() * 12 + 1),
-    money1: Math.floor(Math.random() * 12 + 1),
-    money2: Math.floor(Math.random() * 12 + 1),
-    money3: Math.floor(Math.random() * 12 + 1),
+    randomNumber: Math.floor(Math.random() * 12 + 19),
+    money0: 0.25,
+    money1: 0.50,
+    money2: 1,
+    money3: 5,
+    money4: 10,
+    money5: 20,
+    money6: 50,
+    money7: 100,
     userPick: 0,
     wins: 0,
     losses: 0,
@@ -40,6 +55,10 @@ $(document).ready(function() {
     var img1 = $(".img1");
     var img2 = $(".img2");
     var img3 = $(".img3");
+    var img4 = $(".img4");
+    var img5 = $(".img5");
+    var img6 = $(".img6");
+    var img7 = $(".img7");
     //create a var that grabs the class number
     var theRandomNumber = $(".number");
     //create vars that grabs classes of wins, losses, and scores
@@ -51,7 +70,7 @@ $(document).ready(function() {
     theLosses.text("Losses: " +gameData.wins);
 
     //show the random number on the screen
-    theRandomNumber.text("Random Number: " + gameData.randomNumber);
+    theRandomNumber.text("Can you pay: " + convertNumberToWords(gameData.randomNumber));
 
     //if the user clicks on image0,1,2,3
     //update the total score
@@ -64,7 +83,7 @@ $(document).ready(function() {
         theRandomNumber.text("Random Number: " + gameData.randomNumber);        
         theWins.text("Wins: " +gameData.wins);
         theLosses.text("Losses: " +gameData.losses);
-        theScore.text(gameData.userPick);
+        theScore.text(convertNumberToWords(gameData.userPick));
 
     });
 
@@ -75,7 +94,7 @@ $(document).ready(function() {
         theRandomNumber.text("Random Number: " + gameData.randomNumber);
         theWins.text("Wins: " +gameData.wins);
         theLosses.text("Losses: " +gameData.losses);
-        theScore.text(gameData.userPick);
+        theScore.text(convertNumberToWords(gameData.userPick));
 
     });
 
@@ -86,7 +105,7 @@ $(document).ready(function() {
         theRandomNumber.text("Random Number: " + gameData.randomNumber);
         theWins.text("Wins: " +gameData.wins);
         theLosses.text("Losses: " +gameData.losses);
-        theScore.text(gameData.userPick);
+        theScore.text(convertNumberToWords(gameData.userPick));
 
     });
 
@@ -97,10 +116,50 @@ $(document).ready(function() {
         theRandomNumber.text("Random Number: " + gameData.randomNumber);
         theWins.text("Wins: " +gameData.wins);
         theLosses.text("Losses: " +gameData.losses);
-        theScore.text(gameData.userPick);
+        theScore.text(convertNumberToWords(gameData.userPick));
     });
     
+    img4.on("click", function(){
+        gameData.userPick = gameData.userPick + gameData.money4;
+        theScore.text(gameData.userPick);
+        gameData.didUserWin(gameData.userPick);
+        theRandomNumber.text("Random Number: " + gameData.randomNumber);
+        theWins.text("Wins: " +gameData.wins);
+        theLosses.text("Losses: " +gameData.losses);
+        theScore.text(convertNumberToWords(gameData.userPick));
+    });
 
+    img5.on("click", function(){
+        gameData.userPick = gameData.userPick + gameData.money5;
+        theScore.text(gameData.userPick);
+        gameData.didUserWin(gameData.userPick);
+        theRandomNumber.text("Random Number: " + gameData.randomNumber);
+        theWins.text("Wins: " +gameData.wins);
+        theLosses.text("Losses: " +gameData.losses);
+        theScore.text(convertNumberToWords(gameData.userPick));
+    });
+
+
+    img6.on("click", function(){
+        gameData.userPick = gameData.userPick + gameData.money6;
+        theScore.text(gameData.userPick);
+        gameData.didUserWin(gameData.userPick);
+        theRandomNumber.text("Random Number: " + gameData.randomNumber);
+        theWins.text("Wins: " +gameData.wins);
+        theLosses.text("Losses: " +gameData.losses);
+        theScore.text(convertNumberToWords(gameData.userPick));
+    });
+
+
+    img7.on("click", function(){
+        gameData.userPick = gameData.userPick + gameData.money7;
+        theScore.text(gameData.userPick);
+        gameData.didUserWin(gameData.userPick);
+        theRandomNumber.text("Random Number: " + gameData.randomNumber);
+        theWins.text("Wins: " +gameData.wins);
+        theLosses.text("Losses: " +gameData.losses);
+        theScore.text(convertNumberToWords(gameData.userPick));
+    });
 });
 
 
