@@ -34,24 +34,37 @@ var gameData = {
         if (x == this.randomNumber) {
             this.wins = this.wins +1;
             this.userPick = 0;
-            this.randomNumber= Math.floor(Math.random() * 120 + 19);
-            this.money0= Math.floor(Math.random() * 12 + 1);
-            this.money1= Math.floor(Math.random() * 12 + 1);
-            this.money2= Math.floor(Math.random() * 12 + 1);
-            this.money3= Math.floor(Math.random() * 12 + 1);
+            alert("You have entered the correct denominations")
+            this.randomNumber= Math.floor(Math.random() * 12 + 30);
             
-        }
-        if (x > this.randomNumber) {
-            this.losses = this.losses+1;
-            this.userPick = 0;
-            this.randomNumber= Math.floor(Math.random() * 120 + 19);
-            this.money0= Math.floor(Math.random() * 12 + 1);
-            this.money1= Math.floor(Math.random() * 12 + 1);
-            this.money2= Math.floor(Math.random() * 12 + 1);
-            this.money3= Math.floor(Math.random() * 12 + 1);
         }
     },
 };
+
+
+
+// didUserWin: function(x) {
+//     if (x == this.randomNumber) {
+//         this.wins = this.wins +1;
+//         this.userPick = 0;
+//         this.randomNumber= Math.floor(Math.random() * 120 + 19);
+//         this.money0= Math.floor(Math.random() * 12 + 1);
+//         this.money1= Math.floor(Math.random() * 12 + 1);
+//         this.money2= Math.floor(Math.random() * 12 + 1);
+//         this.money3= Math.floor(Math.random() * 12 + 1);
+        
+//     }
+//     if (x > this.randomNumber) {
+//         this.losses = this.losses+1;
+//         this.userPick = 0;
+//         this.randomNumber= Math.floor(Math.random() * 120 + 19);
+//         this.money0= Math.floor(Math.random() * 12 + 1);
+//         this.money1= Math.floor(Math.random() * 12 + 1);
+//         this.money2= Math.floor(Math.random() * 12 + 1);
+//         this.money3= Math.floor(Math.random() * 12 + 1);
+//     }
+// },
+// };
 
 $(document).ready(function() {
 
@@ -64,6 +77,7 @@ $(document).ready(function() {
     var img5 = $(".img5");
     var img6 = $(".img6");
     var img7 = $(".img7");
+    var reset = $(".reset");
     //create a var that grabs the class number
     var theRandomNumber = $(".number");
     //create vars that grabs classes of wins, losses, and scores
@@ -81,6 +95,15 @@ $(document).ready(function() {
     //update the total score
     //check to see if the user wins
     //update the random number text, losses, and wins
+
+
+    reset.on("click", function(){
+        console.log("Clicked")
+        gameData.userPick = 0
+        theScore.text(convertNumberToWords(gameData.userPick));
+    });
+
+
     img0.on("click", function(){
         gameData.userPick = gameData.userPick + gameData.money0;
         theScore.text(gameData.userPick);
