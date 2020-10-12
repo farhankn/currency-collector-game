@@ -9,7 +9,7 @@ function convertNumberToWords(num) {
         words = nonDecimal + " Dirhams " 
     }
     else{
-    words = nonDecimal + " Dirhams and " + decimal + " Halalas "
+    words = nonDecimal + " Dirhams and " + decimal + " Sils "
     }
     console.log(words)
     return words
@@ -166,10 +166,4 @@ $(document).ready(function() {
         theScore.text(convertNumberToWords(gameData.userPick));
     });
 });
-
-
-
-
-
-
 
