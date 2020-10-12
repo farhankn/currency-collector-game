@@ -5,7 +5,12 @@ function convertNumberToWords(num) {
     var splittedNum =num.toString().split('.')
     var nonDecimal=splittedNum[0]
     var decimal=splittedNum[1]
-    words = nonDecimal + " Riyal and " + decimal + " Halalas "
+    if (decimal === undefined) {
+        words = nonDecimal + " Dirhams " 
+    }
+    else{
+    words = nonDecimal + " Dirhams and " + decimal + " Halalas "
+    }
     console.log(words)
     return words
     }
