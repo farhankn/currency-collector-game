@@ -15,8 +15,13 @@ function convertNumberToWords(num) {
     return words
     }
 
+function getRndmFromSet(set)
+{
+var rndm = Math.floor(Math.random() * set.length);
+return set[rndm];
+}    
 var gameData = {
-    randomNumber: Math.floor(Math.random() * 12 + 19),
+    randomNumber: getRndmFromSet([10,15,20,30]),
     money0: 0.25,
     money1: 0.50,
     money2: 1,
@@ -35,7 +40,7 @@ var gameData = {
             this.wins = this.wins +1;
             this.userPick = 0;
             alert("You have entered the correct denominations")
-            this.randomNumber= Math.floor(Math.random() * 12 + 30);
+            this.randomNumber= getRndmFromSet([10,15,20,30])
             
         }
     },
